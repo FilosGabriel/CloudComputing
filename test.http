@@ -1,0 +1,104 @@
+#create user
+POST http://localhost:8080/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "filosss2",
+  "password": "password"
+}
+
+###
+POST http://localhost:8080/users/groups
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic filosss password
+
+{
+  "name": "group2",
+  "description": "description",
+  "type": "private"
+}
+
+###
+#in what groups I am
+GET http://localhost:8080/users/groups
+Accept: application/json
+Authorization: Basic filosss password
+
+###
+#what is in that groups
+GET http://localhost:8080/users/groups/5e64c10946282c2544394e77
+Accept: application/json
+Authorization: Basic filosss password
+
+###
+PATCH http://localhost:8080/users/groups/5e64c10946282c2544394e77
+Content-Type: application/json
+Authorization: Basic filosss password
+
+{
+  "description": "another description"
+}
+
+###
+
+DELETE http://localhost:8080/users/groups/5e64c10946282c2544394e77
+Accept: application/json
+Authorization: Basic filosss password
+
+###
+PUT  http://localhost:8080/users/groups/5e64c208f4984f32146da46f
+Content-Type: application/json
+Authorization: Basic filosss password
+
+{
+  "name": "group2 new",
+  "description": "another new"
+}
+
+###
+
+POST http://localhost:8080/users/groups/5e64d69b86d1be1ce8ce6af6/notes
+Content-Type: application/json
+Authorization: Basic filosss password
+
+{
+  "name": "name125",
+  "notes": [
+    "dasdasdads",
+    "dasdasd"
+  ]
+}
+
+###
+GET http://localhost:8080/users/groups/5e64d69b86d1be1ce8ce6af6/notes
+Accept: application/json
+Authorization: Basic filosss password
+
+
+###
+GET http://localhost:8080/users/groups/5e64d69b86d1be1ce8ce6af6/notes/5e64d6fd6e3e7f21988ca080
+Accept: application/json/
+Authorization: Basic filosss password
+
+
+###
+
+PUT  http://localhost:8080/users/groups/5e64d69b86d1be1ce8ce6af6/notes/5e64e0c2821abf2d104bab6f
+Content-Type: application/json
+Authorization: Basic filosss password
+
+{
+  "name": "en name",
+  "notes": [
+    "ana are merdsdse,"
+  ]
+}
+
+###
+DELETE http://localhost:8080/users/groups/5e64d69b86d1be1ce8ce6af6/notes/5e64e4e054f53342a4452af5
+Accept:  application/json
+Authorization: Basic filosss password
+
+###
